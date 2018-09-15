@@ -1,13 +1,21 @@
 from block import Block
+from storage import InMemoryStorage
 
 
 class Blockchain:
-    blocks = []
+    tip = ''
+    db = InMemoryStorage()
 
     def __init__(self):
-        self.blocks.append(Block.genesis_block())
+        if self.db.empty():
+            genesis = Block.genesis_block()
+            self.db.put_block(genesis)
+            self.tip = genesis.hash
+        else:
+            self.tip = self.db.get_last_hash()
 
     def add_block(self, data):
-        last = self.blocks[-1]
-        block = Block(data, last.hash)
-        self.blocks.append(block)
+        last = self.db.get_last_hash()
+        block = Block(data, last)
+        self.db.put_block(block)
+        self.tip = block.hash

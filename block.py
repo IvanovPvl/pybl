@@ -23,9 +23,3 @@ class Block:
     @staticmethod
     def genesis_block():
         return Block('Genesis Block', '')
-
-    # def _set_hash(self):
-    #     headers = ''.join([self.prev_block_hash, self.data, str(self.timestamp)])
-    #     h = hashlib.sha256()
-    #     h.update(headers.encode())
-    #     self.hash = h.hexdigest()
