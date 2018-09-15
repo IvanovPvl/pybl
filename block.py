@@ -20,6 +20,14 @@ class Block:
         self.hash = hash
         self.nonce = nonce
 
+    def __str__(self):
+        pow = ProofOfWork(self)
+        return "Prev. hash: {}\nData: {}\nHash: {}\nPoW: {}".format(
+            self.prev_block_hash,
+            self.data,
+            self.hash,
+            pow.validate())
+
     @staticmethod
     def genesis_block():
         return Block('Genesis Block', '')
