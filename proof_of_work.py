@@ -1,7 +1,7 @@
 import hashlib
 
 
-target_bits = 22
+target_bits = 20
 
 class ProofOfWork:
     block = None

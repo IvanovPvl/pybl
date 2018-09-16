@@ -1,10 +1,10 @@
 from block import Block
-from storage import InMemoryStorage
+from storage import FileStorage
 
 
 class Blockchain:
     tip = ''
-    db = InMemoryStorage()
+    db = FileStorage('./pybl.db')
     current_hash = ''
 
     def __init__(self):

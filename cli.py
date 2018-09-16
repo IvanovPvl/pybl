@@ -5,7 +5,7 @@ from proof_of_work import ProofOfWork
 
 
 class Cli:
-    bc = None
+    bc = Blockchain()
 
 @click.group()
 @click.pass_context
@@ -19,9 +19,6 @@ def main(ctx = None):
 @click.pass_obj
 def add_block(cli, data):
     """Add block to blockchain."""
-
-    if cli.bc == None:
-        cli.bc = Blockchain()
 
     cli.bc.add_block(data)
 
