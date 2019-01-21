@@ -5,11 +5,6 @@ from proof_of_work import ProofOfWork
 
 
 class Block:
-    timestamp = 0
-    data = ''
-    prev_block_hash = ''
-    hash = ''
-    nonce = 0
 
     def __init__(self, data, prev_block_hash):
         self.timestamp = int(time.time())

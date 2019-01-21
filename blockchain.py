@@ -3,11 +3,11 @@ from storage import FileStorage
 
 
 class Blockchain:
-    tip = ''
-    db = FileStorage('./pybl.db')
-    current_hash = ''
 
     def __init__(self):
+        self.db = FileStorage('./pybl.db')
+        self.current_hash = None
+
         if self.db.empty():
             genesis = Block.genesis_block()
             self.db.put_block(genesis)

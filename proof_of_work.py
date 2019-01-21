@@ -4,8 +4,6 @@ import hashlib
 target_bits = 20
 
 class ProofOfWork:
-    block = None
-    target = 0
 
     def __init__(self, block):
         self.block = block

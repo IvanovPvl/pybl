@@ -24,7 +24,9 @@ class Storage(metaclass=abc.ABCMeta):
 
 
 class InMemoryStorage(Storage):
-    db = {}
+
+    def __init__(self):
+        self.db = {}
 
     def get_block(self, hash):
         return self.db.get(hash)
